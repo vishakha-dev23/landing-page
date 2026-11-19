@@ -9,9 +9,11 @@
   --stone-2: #efece6;
   --gold: #9c7a43;
 
-  --sage-bg: #e3ece9;
-  --sage-ink: #3d5c55;
-  --sage-soft: #93aba4;
+  --sage-bg: #e3ece9;     /* pale sage */
+  --sage-ink: #3d5c55;    /* muted forest sage */
+  --sage-text: #4a6a62;   /* forest sage for body text on pale sage */
+  --sage-soft: #9fb4ad;
+  --ivory: #f7f3ea;
 
   --dark: #0f0f10;
   --dark-2: #19191b;

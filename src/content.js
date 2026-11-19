@@ -24,6 +24,11 @@ export const SHOWCASE = {
       id: 'home',
       label: 'Home',
       url: 'yourstore.com',
+      // A styled scene replaces the framed screenshots for this tab. Remove it to go back to the frames.
+      creative: {
+        src: '/images/showcase-home.webp',
+        alt: 'The Flaire home page on a laptop and a phone, on a linen table beside a green velvet ring box',
+      },
       desktop: { src: '/screens/hero-d.webp', w: 1920, h: 1190, alt: 'Flaire home page with a gemstone ring banner' },
       phone: { src: '/screens/hero-m.webp', w: 780, h: 1655, alt: 'Flaire home page on a phone' },
     },

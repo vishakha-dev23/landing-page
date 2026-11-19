@@ -34,6 +34,36 @@
   padding-bottom: clamp(0px, 4vw, 56px);
 }
 
+.show { overflow: clip; }
+
+/* The stage keeps the scene's 3:2 shape for every tab, so switching tabs never moves the page */
+.show__stage { min-height: min(66.667vw, 960px); }
+
+/* A styled scene for a tab: full window width, square edges */
+.show__creative {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 3;
+  width: 100vw;
+  max-width: none;
+  height: 100%;
+  transform: translateX(-50%);
+  object-fit: cover;
+  object-position: 50% 55%;
+  border-radius: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease);
+}
+.show__creative.is-on { opacity: 1; pointer-events: auto; }
+
+.show__browser,
+.show__phone { transition: opacity 0.5s var(--ease); }
+.show__stage.is-creative .show__browser,
+.show__stage.is-creative .show__phone { opacity: 0; visibility: hidden; transition: opacity 0.5s var(--ease), visibility 0s 0.5s; }
+
 .show__layers { position: relative; }
 .show__layer {
   position: absolute;

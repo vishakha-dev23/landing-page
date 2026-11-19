@@ -3,7 +3,7 @@ import { Reveal } from './ui.jsx';
 import './Layouts.css';
 
 // Wireframes drawn on a 300 x 200 grid. b = dark block, l = light line, f = frame stroke.
-const Frame = () => <rect className="f" x="1" y="1" width="298" height="198" rx="2" />;
+const Frame = () => <rect className="f frame" x="1" y="1" width="298" height="198" rx="3" />;
 const Lines = ({ x, y, w = 96, n = 3, gap = 13 }) =>
   Array.from({ length: n }, (_, i) => <rect key={i} className="l" x={x} y={y + i * gap} width={w} height="5" rx="1" />);
 

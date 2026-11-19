@@ -53,7 +53,26 @@ export default function Showcase() {
           ))}
         </Reveal>
 
-        <Reveal className="show__stage" id="show-panel" role="tabpanel" aria-labelledby={`show-tab-${active}`}>
+        <Reveal
+          className={`show__stage${current.creative ? ' is-creative' : ''}`}
+          id="show-panel"
+          role="tabpanel"
+          aria-labelledby={`show-tab-${active}`}
+        >
+          {SHOWCASE.pages
+            .filter((p) => p.creative)
+            .map((p) => (
+              <img
+                key={p.id}
+                src={p.creative.src}
+                alt={p.id === active ? p.creative.alt : ''}
+                aria-hidden={p.id !== active}
+                className={`show__creative${p.id === active ? ' is-on' : ''}`}
+                width="1536"
+                height="1024"
+                decoding="async"
+              />
+            ))}
           <Browser url={current.url} className="show__browser group">
             <div className="show__layers" style={{ aspectRatio: `1 / ${DESKTOP_RATIO}` }}>
               {SHOWCASE.pages.map((p) => (
@@ -76,7 +95,9 @@ export default function Showcase() {
         </Reveal>
 
         <Reveal className="show__foot">
-          <p className="show__hint">Hover a screen to scroll the page.</p>
+          <p className="show__hint" aria-hidden={!!current.creative} style={current.creative ? { visibility: 'hidden' } : undefined}>
+            Hover a screen to scroll the page.
+          </p>
           <div>
             <DemoButton className="btn btn--primary">Open the live demo</DemoButton>
             <DemoPassword />
